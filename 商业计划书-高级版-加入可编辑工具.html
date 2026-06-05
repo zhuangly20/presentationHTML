@@ -1,0 +1,2455 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SoulMate AI - 商业计划书</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        :root {
+            --blue: #1e3a5f;
+            --blue-deep: #152a45;
+            --blue-lite: #2a4d7a;
+            --pink: #e89cb1;
+            --pink-deep: #d27e96;
+            --cream: #efe7d4;
+            --cream-2: #e6dcc4;
+            --ink: #1a1a17;
+            --serif: "Noto Serif SC", "Source Serif 4", Georgia, serif;
+            --mono: "JetBrains Mono", ui-monospace, Menlo, monospace;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--serif);
+            background: #111;
+            overflow-x: hidden;
+        }
+
+        .slide-container {
+            width: 100%;
+            max-width: 1600px;
+            margin: 0 auto;
+        }
+
+        .slide {
+            width: 100%;
+            height: 0;
+            padding-bottom: 56.25%;
+            position: relative;
+            background: var(--cream);
+            margin-bottom: 20px;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+        }
+
+        .slide-content {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            padding: 5% 6%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .slide-number {
+            position: absolute;
+            bottom: 3%;
+            right: 5%;
+            font-family: var(--mono);
+            font-size: 1.1vw;
+            color: var(--blue);
+            opacity: 0.5;
+            letter-spacing: 0.1em;
+        }
+
+        h1 {
+            font-family: var(--serif);
+            font-size: 4vw;
+            color: var(--pink);
+            margin-bottom: 3%;
+            text-align: center;
+            font-weight: 600;
+            letter-spacing: -0.02em;
+        }
+
+        h2 {
+            font-family: var(--serif);
+            font-size: 2.6vw;
+            color: var(--blue);
+            margin-bottom: 2.5%;
+            padding-bottom: 1.5%;
+            border-bottom: 3px solid var(--pink);
+            display: inline-block;
+            font-weight: 600;
+            letter-spacing: -0.01em;
+        }
+
+        h3 {
+            font-family: var(--serif);
+            font-size: 1.8vw;
+            color: var(--blue);
+            margin: 2% 0 1.5%;
+            font-weight: 600;
+        }
+
+        p {
+            font-family: var(--serif);
+            font-size: 1.4vw;
+            line-height: 1.7;
+            color: var(--ink);
+            margin-bottom: 1.5%;
+            font-weight: 400;
+        }
+
+        .label {
+            font-family: var(--mono);
+            font-size: 1.1vw;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            font-weight: 500;
+            color: var(--blue);
+        }
+
+        .highlight {
+            background: var(--cream-2);
+            padding: 2% 3%;
+            border-radius: 6px;
+            margin: 2% 0;
+            border-left: 4px solid var(--pink);
+        }
+
+        .highlight p {
+            margin: 0.8% 0;
+            font-size: 1.5vw;
+        }
+
+        .grid-2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3%;
+            margin-top: 2%;
+        }
+
+        .grid-3 {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 2.5%;
+            margin-top: 2%;
+        }
+
+        .card {
+            background: white;
+            padding: 3%;
+            border-radius: 6px;
+            border: 2px solid var(--blue);
+        }
+
+        .card h3 {
+            font-size: 1.5vw;
+            margin-bottom: 3%;
+        }
+
+        .card p, .card li {
+            font-size: 1.2vw;
+        }
+
+        ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        li {
+            font-size: 1.4vw;
+            line-height: 2;
+            color: var(--ink);
+            padding-left: 2vw;
+            position: relative;
+        }
+
+        li:before {
+            content: "";
+            width: 8px;
+            height: 8px;
+            background: var(--pink);
+            border-radius: 2px;
+            position: absolute;
+            left: 0;
+            top: 0.7vw;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 2% 0;
+            background: white;
+            border-radius: 6px;
+            overflow: hidden;
+            border: 2px solid var(--blue);
+        }
+
+        th {
+            background: var(--blue);
+            color: var(--pink);
+            padding: 2%;
+            font-family: var(--mono);
+            font-size: 1.2vw;
+            text-align: left;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            font-weight: 500;
+        }
+
+        td {
+            padding: 1.8%;
+            font-size: 1.2vw;
+            color: var(--ink);
+            border-bottom: 1px solid var(--cream-2);
+        }
+
+        tr:hover {
+            background: var(--cream);
+        }
+
+        .cover-slide {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            background: var(--blue);
+            color: var(--pink);
+        }
+
+        .cover-slide h1 {
+            font-size: 5vw;
+            margin-bottom: 2%;
+            color: var(--pink);
+            font-weight: 600;
+        }
+
+        .cover-slide .subtitle {
+            font-family: var(--serif);
+            font-size: 2.2vw;
+            color: var(--cream);
+            margin-bottom: 5%;
+            font-weight: 500;
+        }
+
+        .cover-slide .tagline {
+            font-family: var(--mono);
+            font-size: 1.5vw;
+            color: var(--pink);
+            background: rgba(255, 255, 255, 0.1);
+            padding: 1.5% 4%;
+            border-radius: 50px;
+            margin-top: 3%;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            font-weight: 500;
+        }
+
+        .stat-box {
+            text-align: center;
+            padding: 3%;
+            background: var(--cream);
+            border-radius: 6px;
+            border: 2px solid var(--blue);
+        }
+
+        .stat-box .number {
+            font-family: var(--serif);
+            font-size: 3vw;
+            color: var(--pink);
+            font-weight: 600;
+            margin-bottom: 1%;
+            letter-spacing: -0.02em;
+        }
+
+        .stat-box .label {
+            font-size: 1.2vw;
+            color: var(--blue);
+        }
+
+        .timeline {
+            position: relative;
+            padding-left: 5%;
+        }
+
+        .timeline-item {
+            position: relative;
+            padding-bottom: 3%;
+            padding-left: 4%;
+        }
+
+        .timeline-item:before {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: var(--pink);
+        }
+
+        .timeline-item:after {
+            content: "";
+            position: absolute;
+            left: -4px;
+            top: 0.5vw;
+            width: 10px;
+            height: 10px;
+            background: var(--blue);
+            border-radius: 2px;
+        }
+
+        .timeline-item h4 {
+            font-family: var(--serif);
+            font-size: 1.3vw;
+            color: var(--blue);
+            margin-bottom: 0.5%;
+            font-weight: 600;
+        }
+
+        .timeline-item p {
+            font-size: 1.2vw;
+            margin: 0;
+        }
+
+        .nav-dots {
+            position: fixed;
+            right: 2%;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 1000;
+        }
+
+        .nav-dot {
+            width: 12px;
+            height: 12px;
+            background: var(--cream);
+            border: 2px solid var(--pink);
+            border-radius: 2px;
+            margin: 10px 0;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .nav-dot:hover, .nav-dot.active {
+            background: var(--pink);
+            transform: scale(1.2);
+        }
+
+        .two-column {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4%;
+            height: 100%;
+        }
+
+        .column {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .feature-list {
+            margin-top: 2%;
+        }
+
+        .feature-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 2%;
+            padding: 2%;
+            background: white;
+            border-radius: 6px;
+            border-left: 4px solid var(--pink);
+        }
+
+        .feature-item .icon-circle {
+            width: 2.2vw;
+            height: 2.2vw;
+            background: var(--blue);
+            border-radius: 3px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 3%;
+            flex-shrink: 0;
+        }
+
+        .feature-item .icon-circle::after {
+            content: "";
+            width: 8px;
+            height: 8px;
+            background: var(--pink);
+            border-radius: 2px;
+        }
+
+        .feature-item p {
+            margin: 0;
+            font-size: 1.2vw;
+        }
+
+        .contact-info {
+            text-align: center;
+            margin-top: 3%;
+        }
+
+        .contact-info p {
+            font-size: 1.3vw;
+            margin: 1% 0;
+        }
+
+        .chart-container {
+            background: white;
+            border-radius: 6px;
+            padding: 3%;
+            border: 2px solid var(--blue);
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .chart-container h3 {
+            margin-top: 0;
+            margin-bottom: 2%;
+        }
+
+        .chart-wrapper {
+            flex: 1;
+            position: relative;
+            min-height: 0;
+        }
+
+        .flow-chart {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin: 3% 0;
+            padding: 2%;
+            background: white;
+            border-radius: 6px;
+            border: 2px solid var(--blue);
+        }
+
+        .flow-step {
+            text-align: center;
+            flex: 1;
+            position: relative;
+        }
+
+        .flow-step:after {
+            content: "→";
+            position: absolute;
+            right: -10%;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 2vw;
+            color: var(--pink);
+        }
+
+        .flow-step:last-child:after {
+            content: "";
+        }
+
+        .flow-step .step-num {
+            width: 2.8vw;
+            height: 2.8vw;
+            background: var(--blue);
+            color: var(--pink);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1vw;
+            font-family: var(--mono);
+            font-size: 1.3vw;
+            font-weight: 600;
+        }
+
+        .flow-step p {
+            font-size: 1.1vw;
+            margin: 0;
+        }
+
+        .blue-section {
+            background: var(--blue);
+            color: var(--cream);
+        }
+
+        .blue-section h2 {
+            color: var(--pink);
+            border-bottom-color: var(--pink);
+        }
+
+        .blue-section h3 {
+            color: var(--pink);
+        }
+
+        .blue-section p {
+            color: var(--cream);
+        }
+
+        .blue-section .label {
+            color: var(--pink);
+        }
+
+        .blue-section .stat-box {
+            background: rgba(255, 255, 255, 0.1);
+            border-color: var(--pink);
+        }
+
+        .blue-section .stat-box .number {
+            color: var(--pink);
+        }
+
+        .blue-section .stat-box .label {
+            color: var(--cream);
+        }
+
+        .blue-section .highlight {
+            background: rgba(255, 255, 255, 0.1);
+            border-left-color: var(--pink);
+        }
+
+        .blue-section .card {
+            background: rgba(255, 255, 255, 0.1);
+            border-color: var(--pink);
+        }
+
+        .blue-section .card h3 {
+            color: var(--pink);
+        }
+
+        .blue-section .card p,
+        .blue-section .card li {
+            color: var(--cream);
+        }
+
+        .blue-section li:before {
+            background: var(--pink);
+        }
+
+        .blue-section table {
+            border-color: var(--pink);
+        }
+
+        .blue-section th {
+            background: var(--pink);
+            color: var(--blue-deep);
+        }
+
+        .blue-section td {
+            color: var(--cream);
+            border-bottom-color: rgba(255, 255, 255, 0.2);
+        }
+
+        .blue-section tr:hover {
+            background: rgba(255, 255, 255, 0.05);
+        }
+
+        .blue-section .chart-container {
+            background: rgba(255, 255, 255, 0.1);
+            border-color: var(--pink);
+        }
+
+        .blue-section .chart-container h3 {
+            color: var(--pink);
+        }
+
+        .blue-section .feature-item {
+            background: rgba(255, 255, 255, 0.1);
+            border-left-color: var(--pink);
+        }
+
+        .blue-section .feature-item p {
+            color: var(--cream);
+        }
+
+        .blue-section .feature-item .icon-circle {
+            background: var(--pink);
+        }
+
+        .blue-section .feature-item .icon-circle::after {
+            background: var(--blue);
+        }
+
+        .blue-section .flow-chart {
+            background: rgba(255, 255, 255, 0.1);
+            border-color: var(--pink);
+        }
+
+        .blue-section .flow-step .step-num {
+            background: var(--pink);
+            color: var(--blue-deep);
+        }
+
+        .blue-section .flow-step:after {
+            color: var(--pink);
+        }
+
+        .blue-section .timeline-item:before {
+            background: var(--pink);
+        }
+
+        .blue-section .timeline-item:after {
+            background: var(--pink);
+        }
+
+        .blue-section .timeline-item h4 {
+            color: var(--pink);
+        }
+
+        .blue-section .timeline-item p {
+            color: var(--cream);
+        }
+
+        .pink-section {
+            background: var(--pink);
+            color: var(--blue-deep);
+        }
+
+        .pink-section h2 {
+            color: var(--blue-deep);
+            border-bottom-color: var(--blue-deep);
+        }
+
+        .pink-section h3 {
+            color: var(--blue-deep);
+        }
+
+        .pink-section p {
+            color: var(--blue-deep);
+        }
+
+        .pink-section .label {
+            color: var(--blue-deep);
+        }
+
+        .pink-section .stat-box {
+            background: rgba(255, 255, 255, 0.3);
+            border-color: var(--blue-deep);
+        }
+
+        .pink-section .stat-box .number {
+            color: var(--blue-deep);
+        }
+
+        .pink-section .stat-box .label {
+            color: var(--blue-deep);
+        }
+
+        .pink-section .highlight {
+            background: rgba(255, 255, 255, 0.3);
+            border-left-color: var(--blue-deep);
+        }
+
+        .pink-section .card {
+            background: rgba(255, 255, 255, 0.3);
+            border-color: var(--blue-deep);
+        }
+
+        .pink-section .card h3 {
+            color: var(--blue-deep);
+        }
+
+        .pink-section .card p,
+        .pink-section .card li {
+            color: var(--blue-deep);
+        }
+
+        .pink-section li:before {
+            background: var(--blue-deep);
+        }
+
+        .pink-section table {
+            border-color: var(--blue-deep);
+        }
+
+        .pink-section th {
+            background: var(--blue-deep);
+            color: var(--pink);
+        }
+
+        .pink-section td {
+            color: var(--blue-deep);
+            border-bottom-color: rgba(30, 58, 95, 0.2);
+        }
+
+        .pink-section tr:hover {
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        .pink-section .chart-container {
+            background: rgba(255, 255, 255, 0.3);
+            border-color: var(--blue-deep);
+        }
+
+        .pink-section .chart-container h3 {
+            color: var(--blue-deep);
+        }
+
+        @media (max-width: 1024px) {
+            .slide {
+                height: auto;
+                padding-bottom: 0;
+                min-height: 100vh;
+            }
+            
+            .slide-content {
+                position: relative;
+                height: auto;
+                min-height: 100vh;
+            }
+        }
+
+        /* ===== 编辑模式样式 ===== */
+        .edit-mode .slide-content h1,
+        .edit-mode .slide-content h2,
+        .edit-mode .slide-content h3,
+        .edit-mode .slide-content p,
+        .edit-mode .slide-content li,
+        .edit-mode .slide-content .label,
+        .edit-mode .slide-content .subtitle,
+        .edit-mode .slide-content .tagline,
+        .edit-mode .slide-content td,
+        .edit-mode .slide-content th,
+        .edit-mode .slide-content h4 {
+            cursor: text;
+        }
+
+        .edit-mode .slide-content .card,
+        .edit-mode .slide-content .stat-box,
+        .edit-mode .slide-content .highlight,
+        .edit-mode .slide-content .feature-item,
+        .edit-mode .slide-content .flow-step,
+        .edit-mode .slide-content .timeline-item,
+        .edit-mode .slide-content .chart-container,
+        .edit-mode .slide-content table,
+        .edit-mode .slide-content .flow-chart,
+        .edit-mode .slide-content img,
+        .edit-mode .slide-content video {
+            cursor: grab;
+        }
+
+        /* 选中元素高亮 */
+        .edit-selected {
+            outline: 2px solid var(--pink) !important;
+            outline-offset: 2px;
+        }
+
+        /* 拖动中的元素 */
+        .edit-dragging {
+            opacity: 0.4 !important;
+        }
+
+        /* 拖动克隆体 */
+        .drag-clone {
+            position: fixed;
+            pointer-events: none;
+            z-index: 9999;
+            opacity: 0.9;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+            border-radius: 4px;
+        }
+
+        /* Resize 手柄 */
+        .resize-handle {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            background: var(--pink);
+            border: 1.5px solid var(--blue);
+            border-radius: 2px;
+            z-index: 100;
+        }
+        .resize-handle.nw { top: -5px; left: -5px; cursor: nw-resize; }
+        .resize-handle.ne { top: -5px; right: -5px; cursor: ne-resize; }
+        .resize-handle.sw { bottom: -5px; left: -5px; cursor: sw-resize; }
+        .resize-handle.se { bottom: -5px; right: -5px; cursor: se-resize; }
+        .resize-handle.n { top: -5px; left: 50%; transform: translateX(-50%); cursor: n-resize; }
+        .resize-handle.s { bottom: -5px; left: 50%; transform: translateX(-50%); cursor: s-resize; }
+        .resize-handle.e { top: 50%; right: -5px; transform: translateY(-50%); cursor: e-resize; }
+        .resize-handle.w { top: 50%; left: -5px; transform: translateY(-50%); cursor: w-resize; }
+
+        /* 可编辑文本框 */
+        .editable-textbox {
+            position: absolute;
+            cursor: grab;
+            z-index: 10;
+            padding: 8px 12px;
+            border: 1px dashed var(--pink);
+            border-radius: 4px;
+            min-width: 60px;
+            min-height: 30px;
+            overflow: hidden;
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+        }
+        .editable-textbox:focus,
+        .editable-textbox[contenteditable="true"] {
+            cursor: text;
+            outline: none;
+            border-color: var(--blue);
+            border-style: solid;
+        }
+
+        /* 插入的媒体元素 */
+        .inserted-element {
+            position: absolute;
+            z-index: 10;
+        }
+
+        /* 小小怪图标 */
+        #littleMonster {
+            position: fixed;
+            bottom: 30px;
+            left: 30px;
+            width: 64px;
+            height: 64px;
+            z-index: 10000;
+            cursor: grab;
+            user-select: none;
+            transition: transform 0.2s;
+            filter: drop-shadow(0 4px 12px rgba(0,0,0,0.3));
+        }
+        #littleMonster:hover {
+            transform: scale(1.1);
+        }
+        #littleMonster.active {
+            filter: drop-shadow(0 4px 16px rgba(232, 156, 177, 0.6));
+        }
+        #littleMonster.dragging {
+            cursor: grabbing;
+        }
+
+        /* 编辑工具栏 */
+        .edit-toolbar {
+            position: fixed;
+            top: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 10001;
+            background: rgba(30, 58, 95, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 12px;
+            padding: 8px 16px;
+            display: none;
+            align-items: center;
+            gap: 8px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+            flex-wrap: wrap;
+            max-width: 90vw;
+        }
+        .edit-toolbar.visible {
+            display: flex;
+        }
+        .edit-toolbar button {
+            background: rgba(255,255,255,0.15);
+            color: #fff;
+            border: none;
+            padding: 6px 14px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 13px;
+            font-family: var(--mono);
+            transition: background 0.2s;
+            white-space: nowrap;
+        }
+        .edit-toolbar button:hover {
+            background: var(--pink);
+            color: var(--blue-deep);
+        }
+        .edit-toolbar button:disabled {
+            opacity: 0.4;
+            cursor: not-allowed;
+        }
+        .edit-toolbar .sep {
+            width: 1px;
+            height: 24px;
+            background: rgba(255,255,255,0.2);
+        }
+
+        /* 右键菜单 */
+        .context-menu {
+            position: fixed;
+            z-index: 10002;
+            background: rgba(30, 58, 95, 0.97);
+            backdrop-filter: blur(10px);
+            border-radius: 8px;
+            padding: 6px 0;
+            min-width: 180px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.4);
+            display: none;
+        }
+        .context-menu.visible {
+            display: block;
+        }
+        .context-menu .menu-item {
+            padding: 8px 18px;
+            color: #fff;
+            font-size: 13px;
+            font-family: var(--mono);
+            cursor: pointer;
+            transition: background 0.15s;
+        }
+        .context-menu .menu-item:hover {
+            background: var(--pink);
+            color: var(--blue-deep);
+        }
+
+        /* 隐藏的文件输入 */
+        #fileInput, #videoInput {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="nav-dots">
+        <div class="nav-dot active" onclick="scrollToSlide(0)"></div>
+        <div class="nav-dot" onclick="scrollToSlide(1)"></div>
+        <div class="nav-dot" onclick="scrollToSlide(2)"></div>
+        <div class="nav-dot" onclick="scrollToSlide(3)"></div>
+        <div class="nav-dot" onclick="scrollToSlide(4)"></div>
+        <div class="nav-dot" onclick="scrollToSlide(5)"></div>
+        <div class="nav-dot" onclick="scrollToSlide(6)"></div>
+        <div class="nav-dot" onclick="scrollToSlide(7)"></div>
+        <div class="nav-dot" onclick="scrollToSlide(8)"></div>
+        <div class="nav-dot" onclick="scrollToSlide(9)"></div>
+    </div>
+
+    <div class="slide-container">
+        <!-- 第1页：封面 -->
+        <div class="slide" id="slide-0">
+            <div class="slide-content cover-slide">
+                <div class="label" style="margin-bottom: 3%;">Business Plan 2025</div>
+                <h1>SoulMate AI</h1>
+                <div class="subtitle">大学生智能交友平台商业计划书</div>
+                <div class="tagline">让AI帮你遇见对的人</div>
+                <p style="margin-top: 5%; font-size: 1.4vw; color: var(--cream);">
+                    为每位大学生配备AI Agent，让AI先聊天，合得来再让真人认识
+                </p>
+            </div>
+            <div class="slide-number">1 / 10</div>
+        </div>
+
+        <!-- 第2页：执行摘要 -->
+        <div class="slide blue-section" id="slide-1">
+            <div class="slide-content">
+                <div class="label">Executive Summary</div>
+                <h2>执行摘要</h2>
+                <div class="grid-2">
+                    <div class="column">
+                        <div class="highlight">
+                            <p><strong>项目定位</strong></p>
+                            <p>为每位大学生配备AI Agent，让AI先聊天，合得来再让真人认识</p>
+                        </div>
+                        <div class="highlight">
+                            <p><strong>核心价值</strong></p>
+                            <p>降低社交门槛 | 精准匹配 | 保护隐私</p>
+                        </div>
+                    </div>
+                    <div class="column">
+                        <div class="stat-box" style="margin-bottom: 4%;">
+                            <div class="number">4000万</div>
+                            <div class="label">大学生市场</div>
+                        </div>
+                        <div class="grid-2">
+                            <div class="stat-box">
+                                <div class="number">50万</div>
+                                <div class="label">首年目标用户</div>
+                            </div>
+                            <div class="stat-box">
+                                <div class="number">500万</div>
+                                <div class="label">融资需求(元)</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="slide-number">2 / 10</div>
+        </div>
+
+        <!-- 第3页：市场分析 -->
+        <div class="slide" id="slide-2">
+            <div class="slide-content">
+                <div class="label">Market Analysis</div>
+                <h2>市场分析</h2>
+                <div class="grid-2">
+                    <div>
+                        <div class="grid-2" style="margin-bottom: 3%;">
+                            <div class="card">
+                                <h3>目标用户</h3>
+                                <p>18-25岁在校大学生</p>
+                                <ul>
+                                    <li>社交需求强烈</li>
+                                    <li>存在社交焦虑</li>
+                                    <li>接受AI产品</li>
+                                </ul>
+                            </div>
+                            <div class="card">
+                                <h3>核心痛点</h3>
+                                <ul>
+                                    <li>社交焦虑，不敢主动</li>
+                                    <li>匹配低效，浪费时间</li>
+                                    <li>隐私泄露，安全隐患</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="highlight">
+                            <p><strong>竞争优势</strong></p>
+                            <p style="font-size: 1.2vw;">Soul匹配不精准 → AI深度对话</p>
+                            <p style="font-size: 1.2vw;">探探看脸社交 → 内在优先</p>
+                            <p style="font-size: 1.2vw;">陌陌用户混杂 → 纯净校园</p>
+                        </div>
+                    </div>
+                    <div class="chart-container">
+                        <h3>市场规模分析</h3>
+                        <div class="chart-wrapper">
+                            <canvas id="marketChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="slide-number">3 / 10</div>
+        </div>
+
+        <!-- 第4页：产品与服务 -->
+        <div class="slide pink-section" id="slide-3">
+            <div class="slide-content">
+                <div class="label">Product & Service</div>
+                <h2>产品与服务</h2>
+                <div class="flow-chart">
+                    <div class="flow-step">
+                        <div class="step-num">1</div>
+                        <p>注册认证</p>
+                    </div>
+                    <div class="flow-step">
+                        <div class="step-num">2</div>
+                        <p>创建Agent</p>
+                    </div>
+                    <div class="flow-step">
+                        <div class="step-num">3</div>
+                        <p>AI代聊</p>
+                    </div>
+                    <div class="flow-step">
+                        <div class="step-num">4</div>
+                        <p>匹配通知</p>
+                    </div>
+                    <div class="flow-step">
+                        <div class="step-num">5</div>
+                        <p>真人连接</p>
+                    </div>
+                </div>
+                <div class="grid-2">
+                    <div>
+                        <h3>AI Agent核心能力</h3>
+                        <div class="feature-list">
+                            <div class="feature-item">
+                                <div class="icon-circle"></div>
+                                <p>个性化学习用户特点</p>
+                            </div>
+                            <div class="feature-item">
+                                <div class="icon-circle"></div>
+                                <p>智能对话评估契合度</p>
+                            </div>
+                            <div class="feature-item">
+                                <div class="icon-circle"></div>
+                                <p>多维度匹配算法</p>
+                            </div>
+                            <div class="feature-item">
+                                <div class="icon-circle"></div>
+                                <p>实时安全审核</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="chart-container">
+                        <h3>产品规划时间线</h3>
+                        <div class="chart-wrapper">
+                            <canvas id="productChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="slide-number">4 / 10</div>
+        </div>
+
+        <!-- 第5页：商业模式 -->
+        <div class="slide blue-section" id="slide-4">
+            <div class="slide-content">
+                <div class="label">Business Model</div>
+                <h2>商业模式</h2>
+                <div class="grid-2">
+                    <div class="chart-container">
+                        <h3>收入来源占比</h3>
+                        <div class="chart-wrapper">
+                            <canvas id="revenueChart"></canvas>
+                        </div>
+                    </div>
+                    <div>
+                        <h3>会员权益对比</h3>
+                        <table style="margin-top: 3%;">
+                            <tr>
+                                <th>功能</th>
+                                <th>普通用户</th>
+                                <th>VIP会员</th>
+                            </tr>
+                            <tr>
+                                <td>Agent数量</td>
+                                <td>1个</td>
+                                <td>3个</td>
+                            </tr>
+                            <tr>
+                                <td>每日匹配</td>
+                                <td>5次</td>
+                                <td>无限</td>
+                            </tr>
+                            <tr>
+                                <td>优先推荐</td>
+                                <td>×</td>
+                                <td>√</td>
+                            </tr>
+                        </table>
+                        <div class="highlight" style="margin-top: 3%;">
+                            <p><strong>关键指标</strong></p>
+                            <p>获客成本：8元 | 用户价值：45元 | 付费转化：12%</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="slide-number">5 / 10</div>
+        </div>
+
+        <!-- 第6页：营销策略 -->
+        <div class="slide" id="slide-5">
+            <div class="slide-content">
+                <div class="label">Marketing Strategy</div>
+                <h2>营销策略</h2>
+                <div class="highlight" style="text-align: center;">
+                    <p style="font-size: 1.8vw;"><strong>品牌定位：让AI帮你遇见对的人</strong></p>
+                </div>
+                <div class="grid-2" style="margin-top: 3%;">
+                    <div>
+                        <h3>推广计划</h3>
+                        <table>
+                            <tr>
+                                <th>阶段</th>
+                                <th>目标</th>
+                                <th>核心方式</th>
+                            </tr>
+                            <tr>
+                                <td>种子期</td>
+                                <td>1万用户</td>
+                                <td>100所高校内测</td>
+                            </tr>
+                            <tr>
+                                <td>成长期</td>
+                                <td>50万用户</td>
+                                <td>校园大使+内容营销</td>
+                            </tr>
+                            <tr>
+                                <td>成熟期</td>
+                                <td>200万用户</td>
+                                <td>品牌升级+跨界合作</td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div class="chart-container">
+                        <h3>获客成本对比</h3>
+                        <div class="chart-wrapper">
+                            <canvas id="costChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="slide-number">6 / 10</div>
+        </div>
+
+        <!-- 第7页：运营计划 -->
+        <div class="slide pink-section" id="slide-6">
+            <div class="slide-content">
+                <div class="label">Operations Plan</div>
+                <h2>运营计划</h2>
+                <div class="grid-2">
+                    <div class="chart-container">
+                        <h3>核心运营指标</h3>
+                        <div class="chart-wrapper">
+                            <canvas id="metricsChart"></canvas>
+                        </div>
+                    </div>
+                    <div>
+                        <h3>风险控制</h3>
+                        <div class="feature-list">
+                            <div class="feature-item">
+                                <div class="icon-circle"></div>
+                                <div>
+                                    <p><strong>内容安全</strong></p>
+                                    <p style="font-size: 1.1vw;">AI + 人工双重审核</p>
+                                </div>
+                            </div>
+                            <div class="feature-item">
+                                <div class="icon-circle"></div>
+                                <div>
+                                    <p><strong>用户安全</strong></p>
+                                    <p style="font-size: 1.1vw;">身份认证 + 信用体系</p>
+                                </div>
+                            </div>
+                            <div class="feature-item">
+                                <div class="icon-circle"></div>
+                                <div>
+                                    <p><strong>数据安全</strong></p>
+                                    <p style="font-size: 1.1vw;">加密存储 + 合规运营</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="highlight" style="margin-top: 3%;">
+                            <p><strong>北极星指标</strong></p>
+                            <p>月活跃用户数（MAU）</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="slide-number">7 / 10</div>
+        </div>
+
+        <!-- 第8页：团队介绍 -->
+        <div class="slide" id="slide-7">
+            <div class="slide-content">
+                <div class="label">Our Team</div>
+                <h2>团队介绍</h2>
+                <div class="grid-2">
+                    <div class="card">
+                        <h3>CEO - 张明</h3>
+                        <p>北大计算机硕士</p>
+                        <p>10年产品经验</p>
+                        <p style="font-size: 1.1vw; color: var(--blue);">曾任某社交产品技术总监</p>
+                    </div>
+                    <div class="card">
+                        <h3>CTO - 李华</h3>
+                        <p>清华AI博士</p>
+                        <p>8年AI研发</p>
+                        <p style="font-size: 1.1vw; color: var(--blue);">曾任某大厂AI实验室研究员</p>
+                    </div>
+                    <div class="card">
+                        <h3>COO - 王芳</h3>
+                        <p>人大营销硕士</p>
+                        <p>7年运营经验</p>
+                        <p style="font-size: 1.1vw; color: var(--blue);">曾任某社交APP运营总监</p>
+                    </div>
+                    <div class="card">
+                        <h3>CPO - 赵强</h3>
+                        <p>浙大心理学硕士</p>
+                        <p>5年产品设计</p>
+                        <p style="font-size: 1.1vw; color: var(--blue);">专注社交产品设计</p>
+                    </div>
+                </div>
+                <div class="highlight" style="margin-top: 3%; text-align: center;">
+                    <p><strong>团队规划：</strong>当前15人 → 6个月30人 → 12个月50人</p>
+                </div>
+            </div>
+            <div class="slide-number">8 / 10</div>
+        </div>
+
+        <!-- 第9页：财务规划 -->
+        <div class="slide blue-section" id="slide-8">
+            <div class="slide-content">
+                <div class="label">Financial Planning</div>
+                <h2>财务规划</h2>
+                <div class="grid-2">
+                    <div>
+                        <div class="highlight">
+                            <p><strong>融资计划</strong></p>
+                            <p>金额：500万元 | 股权：10% | 估值：5000万元</p>
+                        </div>
+                        <div class="chart-container" style="margin-top: 3%;">
+                            <h3>用户增长预测</h3>
+                            <div class="chart-wrapper">
+                                <canvas id="userGrowthChart"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="chart-container">
+                        <h3>财务预测（万元）</h3>
+                        <div class="chart-wrapper">
+                            <canvas id="financeChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="slide-number">9 / 10</div>
+        </div>
+
+        <!-- 第10页：风险与发展 -->
+        <div class="slide" id="slide-9">
+            <div class="slide-content">
+                <div class="label">Risk & Development</div>
+                <h2>风险分析与发展规划</h2>
+                <div class="grid-2">
+                    <div>
+                        <h3>风险对策</h3>
+                        <table>
+                            <tr>
+                                <th>风险</th>
+                                <th>对策</th>
+                            </tr>
+                            <tr>
+                                <td>AI质量不达预期</td>
+                                <td>持续优化+人工审核</td>
+                            </tr>
+                            <tr>
+                                <td>数据安全泄露</td>
+                                <td>加密存储+权限管控</td>
+                            </tr>
+                            <tr>
+                                <td>竞品模仿</td>
+                                <td>快速迭代+品牌壁垒</td>
+                            </tr>
+                            <tr>
+                                <td>用户增长缓慢</td>
+                                <td>多渠道获客+优化体验</td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div>
+                        <h3>发展目标</h3>
+                        <div class="timeline">
+                            <div class="timeline-item">
+                                <h4>1年目标</h4>
+                                <p>50万用户，月度收支平衡</p>
+                            </div>
+                            <div class="timeline-item">
+                                <h4>2-3年目标</h4>
+                                <p>500万用户，年度盈利</p>
+                            </div>
+                            <div class="timeline-item">
+                                <h4>3-5年目标</h4>
+                                <p>2000万用户，探索IPO</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="contact-info">
+                    <p><strong>灵魂伴侣科技有限公司</strong></p>
+                    <p>contact@soulmate-ai.com | 400-XXX-XXXX</p>
+                </div>
+            </div>
+            <div class="slide-number">10 / 10</div>
+        </div>
+    </div>
+
+    <script>
+        function scrollToSlide(index) {
+            const slide = document.getElementById('slide-' + index);
+            slide.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+
+        window.addEventListener('scroll', function() {
+            const slides = document.querySelectorAll('.slide');
+            const dots = document.querySelectorAll('.nav-dot');
+            
+            slides.forEach((slide, index) => {
+                const rect = slide.getBoundingClientRect();
+                if (rect.top >= -window.innerHeight/2 && rect.top < window.innerHeight/2) {
+                    dots.forEach(dot => dot.classList.remove('active'));
+                    dots[index].classList.add('active');
+                }
+            });
+        });
+
+        Chart.defaults.color = '#1a1a17';
+        Chart.defaults.font.family = "'Noto Serif SC', Georgia, serif";
+
+        const chartColors = {
+            blue: '#1e3a5f',
+            blueLite: '#2a4d7a',
+            pink: '#e89cb1',
+            pinkDeep: '#d27e96',
+            cream: '#efe7d4',
+            cream2: '#e6dcc4',
+            ink: '#1a1a17'
+        };
+
+        // 市场规模图表
+        new Chart(document.getElementById('marketChart'), {
+            type: 'doughnut',
+            data: {
+                labels: ['目标市场', '其他大学生'],
+                datasets: [{
+                    data: [2880, 1120],
+                    backgroundColor: [chartColors.blue, chartColors.pink],
+                    borderWidth: 0
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        position: 'bottom',
+                        labels: {
+                            padding: 15,
+                            font: { size: 12 }
+                        }
+                    }
+                }
+            }
+        });
+
+        // 产品规划图表
+        new Chart(document.getElementById('productChart'), {
+            type: 'bar',
+            data: {
+                labels: ['MVP\n1-3月', '成长\n4-6月', '成熟\n7-12月'],
+                datasets: [{
+                    label: '功能完成度',
+                    data: [30, 60, 100],
+                    backgroundColor: [chartColors.cream2, chartColors.pink, chartColors.blue],
+                    borderRadius: 6
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        max: 100,
+                        ticks: { callback: value => value + '%' }
+                    }
+                },
+                plugins: {
+                    legend: { display: false }
+                }
+            }
+        });
+
+        // 收入来源图表
+        new Chart(document.getElementById('revenueChart'), {
+            type: 'pie',
+            data: {
+                labels: ['会员订阅', '虚拟商品', '广告收入', '数据服务'],
+                datasets: [{
+                    data: [50, 25, 15, 10],
+                    backgroundColor: [
+                        chartColors.pink,
+                        chartColors.blue,
+                        chartColors.cream2,
+                        chartColors.blueLite
+                    ],
+                    borderWidth: 2,
+                    borderColor: '#fff'
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        position: 'right',
+                        labels: {
+                            padding: 15,
+                            font: { size: 12 }
+                        }
+                    }
+                }
+            }
+        });
+
+        // 获客成本图表
+        new Chart(document.getElementById('costChart'), {
+            type: 'bar',
+            data: {
+                labels: ['口碑传播', '校园推广', '社交媒体', '应用商店'],
+                datasets: [{
+                    label: '获客成本(元)',
+                    data: [3, 5, 8, 10],
+                    backgroundColor: chartColors.blue,
+                    borderRadius: 6
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                indexAxis: 'y',
+                scales: {
+                    x: {
+                        beginAtZero: true,
+                        ticks: { callback: value => value + '元' }
+                    }
+                },
+                plugins: {
+                    legend: { display: false }
+                }
+            }
+        });
+
+        // 运营指标图表
+        new Chart(document.getElementById('metricsChart'), {
+            type: 'radar',
+            data: {
+                labels: ['次日留存', '7日留存', '付费转化', '匹配成功', 'DAU/MAU'],
+                datasets: [{
+                    label: '目标值',
+                    data: [40, 25, 12, 30, 30],
+                    backgroundColor: 'rgba(232, 156, 177, 0.2)',
+                    borderColor: chartColors.pinkDeep,
+                    borderWidth: 2,
+                    pointBackgroundColor: chartColors.pinkDeep
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                scales: {
+                    r: {
+                        beginAtZero: true,
+                        max: 50,
+                        ticks: { stepSize: 10 }
+                    }
+                },
+                plugins: {
+                    legend: { display: false }
+                }
+            }
+        });
+
+        // 用户增长图表
+        new Chart(document.getElementById('userGrowthChart'), {
+            type: 'line',
+            data: {
+                labels: ['6个月', '12个月', '18个月', '24个月'],
+                datasets: [{
+                    label: '累计用户(万)',
+                    data: [10, 50, 150, 300],
+                    borderColor: chartColors.pink,
+                    backgroundColor: 'rgba(232, 156, 177, 0.1)',
+                    fill: true,
+                    tension: 0.4,
+                    pointRadius: 6,
+                    pointBackgroundColor: chartColors.pink
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        ticks: { callback: value => value + '万' }
+                    }
+                },
+                plugins: {
+                    legend: { display: false }
+                }
+            }
+        });
+
+        // 财务预测图表
+        new Chart(document.getElementById('financeChart'), {
+            type: 'bar',
+            data: {
+                labels: ['第1年', '第2年', '第3年'],
+                datasets: [
+                    {
+                        label: '收入',
+                        data: [360, 1800, 5760],
+                        backgroundColor: chartColors.pink,
+                        borderRadius: 6
+                    },
+                    {
+                        label: '成本',
+                        data: [450, 1150, 2400],
+                        backgroundColor: chartColors.blueLite,
+                        borderRadius: 6
+                    },
+                    {
+                        label: '毛利',
+                        data: [-90, 650, 3360],
+                        backgroundColor: chartColors.cream2,
+                        borderRadius: 6
+                    }
+                ]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                scales: {
+                    y: {
+                        ticks: { callback: value => value + '万' }
+                    }
+                },
+                plugins: {
+                    legend: {
+                        position: 'top',
+                        labels: { padding: 15 }
+                    }
+                }
+            }
+        });
+    </script>
+
+    <!-- 小小怪怪兽图标 -->
+    <div id="littleMonster" title="点击切换编辑模式">
+        <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+            <!-- 身体 -->
+            <ellipse cx="50" cy="58" rx="32" ry="30" fill="#e89cb1"/>
+            <!-- 肚皮 -->
+            <ellipse cx="50" cy="65" rx="20" ry="16" fill="#f5c6d4"/>
+            <!-- 左角 -->
+            <path d="M28 32 L22 12 L36 28" fill="#d27e96"/>
+            <!-- 右角 -->
+            <path d="M72 32 L78 12 L64 28" fill="#d27e96"/>
+            <!-- 左眼 -->
+            <ellipse cx="38" cy="48" rx="8" ry="9" fill="white"/>
+            <ellipse cx="40" cy="48" rx="4" ry="5" fill="#1e3a5f"/>
+            <circle cx="42" cy="46" r="1.5" fill="white"/>
+            <!-- 右眼 -->
+            <ellipse cx="62" cy="48" rx="8" ry="9" fill="white"/>
+            <ellipse cx="60" cy="48" rx="4" ry="5" fill="#1e3a5f"/>
+            <circle cx="62" cy="46" r="1.5" fill="white"/>
+            <!-- 嘴巴 -->
+            <path d="M40 64 Q50 74 60 64" stroke="#1e3a5f" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+            <!-- 左手 -->
+            <path d="M20 55 Q10 50 14 42" stroke="#d27e96" stroke-width="4" fill="none" stroke-linecap="round"/>
+            <!-- 右手 -->
+            <path d="M80 55 Q90 50 86 42" stroke="#d27e96" stroke-width="4" fill="none" stroke-linecap="round"/>
+            <!-- 左脚 -->
+            <ellipse cx="38" cy="88" rx="8" ry="5" fill="#d27e96"/>
+            <!-- 右脚 -->
+            <ellipse cx="62" cy="88" rx="8" ry="5" fill="#d27e96"/>
+        </svg>
+    </div>
+
+    <!-- 编辑工具栏 -->
+    <div class="edit-toolbar" id="editToolbar">
+        <button id="undoBtn" onclick="doUndo()" title="撤回 (Ctrl+Z)" disabled>撤回</button>
+        <div class="sep"></div>
+        <button onclick="editFontSize(1)" title="放大字号">A+</button>
+        <button onclick="editFontSize(-1)" title="缩小字号">A-</button>
+        <div class="sep"></div>
+        <button onclick="deleteSelected()" title="删除选中">删除</button>
+        <div class="sep"></div>
+        <button onclick="insertText()" title="插入文本">插入文本</button>
+        <button onclick="insertImage()" title="插入图片">插入图片</button>
+        <button onclick="insertVideo()" title="插入视频">插入视频</button>
+    </div>
+
+    <!-- 右键菜单 -->
+    <div class="context-menu" id="contextMenu">
+        <div class="menu-item" data-action="fontup">放大字号</div>
+        <div class="menu-item" data-action="fontdown">缩小字号</div>
+        <div class="menu-item" data-action="delete">删除</div>
+        <div class="menu-item" data-action="replace-image">替换图片</div>
+        <div class="menu-item" data-action="replace-video">替换视频</div>
+        <div class="menu-item" data-action="img-bigger">图片放大</div>
+        <div class="menu-item" data-action="img-smaller">图片缩小</div>
+    </div>
+
+    <!-- 隐藏的文件输入 -->
+    <input type="file" id="fileInput" accept="image/*">
+    <input type="file" id="videoInput" accept="video/*">
+
+    <script>
+    (function() {
+        'use strict';
+
+        let isEditMode = false;
+        let selectedElement = null;
+        let contextTarget = null;
+
+        // ===== 撤回系统 =====
+        const undoStack = [];
+        const MAX_UNDO = 50;
+
+        function saveUndo(action) {
+            undoStack.push(action);
+            if (undoStack.length > MAX_UNDO) undoStack.shift();
+            updateUndoBtn();
+        }
+
+        function updateUndoBtn() {
+            const btn = document.getElementById('undoBtn');
+            if (btn) btn.disabled = undoStack.length === 0;
+        }
+
+        window.doUndo = function() {
+            if (undoStack.length === 0) return;
+            const action = undoStack.pop();
+            try {
+                switch (action.type) {
+                    case 'move': {
+                        const el = document.querySelector('[data-edit-id="' + action.id + '"]');
+                        if (el) {
+                            el.style.position = action.prevPosition || '';
+                            el.style.left = action.prevLeft || '';
+                            el.style.top = action.prevTop || '';
+                            el.style.zIndex = action.prevZIndex || '';
+                            el.style.margin = action.prevMargin || '';
+                            if (action.prevParent) action.prevParent.appendChild(el);
+                        }
+                        break;
+                    }
+                    case 'delete': {
+                        if (action.parent && action.html) {
+                            const tmp = document.createElement('div');
+                            tmp.innerHTML = action.html;
+                            const el = tmp.firstChild;
+                            if (action.nextSibling) {
+                                action.parent.insertBefore(el, action.nextSibling);
+                            } else {
+                                action.parent.appendChild(el);
+                            }
+                        }
+                        break;
+                    }
+                    case 'fontsize': {
+                        const el = document.querySelector('[data-edit-id="' + action.id + '"]');
+                        if (el) el.style.fontSize = action.prevFontSize;
+                        break;
+                    }
+                    case 'resize': {
+                        const el = document.querySelector('[data-edit-id="' + action.id + '"]');
+                        if (el) {
+                            el.style.width = action.prevWidth;
+                            el.style.height = action.prevHeight;
+                        }
+                        break;
+                    }
+                    case 'textedit': {
+                        const el = document.querySelector('[data-edit-id="' + action.id + '"]');
+                        if (el) el.innerHTML = action.prevHtml;
+                        break;
+                    }
+                    case 'insert': {
+                        const el = document.querySelector('[data-edit-id="' + action.id + '"]');
+                        if (el) el.remove();
+                        break;
+                    }
+                    case 'replace-image': {
+                        const el = document.querySelector('[data-edit-id="' + action.id + '"]');
+                        if (el && el.tagName === 'IMG') el.src = action.prevSrc;
+                        break;
+                    }
+                    case 'replace-video': {
+                        const el = document.querySelector('[data-edit-id="' + action.id + '"]');
+                        if (el && el.tagName === 'VIDEO') el.src = action.prevSrc;
+                        break;
+                    }
+                    case 'mediasize': {
+                        const el = document.querySelector('[data-edit-id="' + action.id + '"]');
+                        if (el) {
+                            el.style.width = action.prevWidth;
+                            el.style.maxWidth = action.prevMaxWidth;
+                        }
+                        break;
+                    }
+                }
+            } catch(e) { /* ignore */ }
+            updateUndoBtn();
+            deselectAll();
+        };
+
+        // 给元素分配唯一ID
+        let editIdCounter = 0;
+        function ensureEditId(el) {
+            if (!el.dataset.editId) {
+                el.dataset.editId = 'eid_' + (++editIdCounter);
+            }
+            return el.dataset.editId;
+        }
+
+        // ===== 小小怪拖动 =====
+        const monster = document.getElementById('littleMonster');
+        let monsterDragging = false;
+        let monsterOffX = 0, monsterOffY = 0;
+        let monsterStartX = 0, monsterStartY = 0;
+        let monsterHasMoved = false;
+
+        monster.addEventListener('mousedown', function(e) {
+            if (e.button !== 0) return;
+            monsterDragging = true;
+            monsterHasMoved = false;
+            monsterStartX = e.clientX;
+            monsterStartY = e.clientY;
+            monster.classList.add('dragging');
+            const rect = monster.getBoundingClientRect();
+            monsterOffX = e.clientX - rect.left;
+            monsterOffY = e.clientY - rect.top;
+            e.preventDefault();
+            e.stopPropagation();
+        });
+
+        document.addEventListener('mousemove', function(e) {
+            if (monsterDragging) {
+                if (Math.abs(e.clientX - monsterStartX) > 5 || Math.abs(e.clientY - monsterStartY) > 5) {
+                    monsterHasMoved = true;
+                }
+                monster.style.left = (e.clientX - monsterOffX) + 'px';
+                monster.style.top = (e.clientY - monsterOffY) + 'px';
+                monster.style.right = 'auto';
+                monster.style.bottom = 'auto';
+            }
+        });
+
+        document.addEventListener('mouseup', function() {
+            if (monsterDragging) {
+                monsterDragging = false;
+                monster.classList.remove('dragging');
+            }
+        });
+
+        // ===== 小小怪点击切换编辑模式 =====
+        monster.addEventListener('click', function() {
+            if (!monsterHasMoved) {
+                isEditMode = !isEditMode;
+                if (isEditMode) {
+                    document.body.classList.add('edit-mode');
+                    monster.classList.add('active');
+                    document.getElementById('editToolbar').classList.add('visible');
+                } else {
+                    document.body.classList.remove('edit-mode');
+                    monster.classList.remove('active');
+                    document.getElementById('editToolbar').classList.remove('visible');
+                    hideContextMenu();
+                    deselectAll();
+                }
+            }
+        });
+
+        // ===== 选择/取消选择 =====
+        const editableSelectors = 'h1, h2, h3, h4, p, li, .label, .subtitle, .tagline, td, th';
+        const componentSelectors = '.card, .stat-box, .highlight, .feature-item, .flow-step, .timeline-item, .chart-container, table, .flow-chart, img, video, .editable-textbox, .inserted-element';
+
+        function deselectAll() {
+            if (selectedElement) {
+                selectedElement.classList.remove('edit-selected');
+                if (selectedElement.hasAttribute('contenteditable')) {
+                    selectedElement.removeAttribute('contenteditable');
+                }
+                removeResizeHandles(selectedElement);
+            }
+            selectedElement = null;
+        }
+
+        function selectElement(el) {
+            deselectAll();
+            selectedElement = el;
+            el.classList.add('edit-selected');
+            addResizeHandles(el);
+        }
+
+        // ===== Resize 手柄 =====
+        function addResizeHandles(el) {
+            removeResizeHandles(el);
+            // 只有绝对定位的元素才加resize手柄
+            if (window.getComputedStyle(el).position === 'absolute') {
+                const dirs = ['nw','ne','sw','se','n','s','e','w'];
+                dirs.forEach(dir => {
+                    const handle = document.createElement('div');
+                    handle.className = 'resize-handle ' + dir;
+                    handle.dataset.resizeDir = dir;
+                    el.appendChild(handle);
+                });
+            }
+        }
+
+        function removeResizeHandles(el) {
+            el.querySelectorAll('.resize-handle').forEach(h => h.remove());
+        }
+
+        // ===== 点击事件 =====
+        document.addEventListener('click', function(e) {
+            if (!isEditMode) return;
+            if (e.target.closest('#littleMonster') || e.target.closest('.edit-toolbar') || e.target.closest('.context-menu')) return;
+            if (e.target.classList.contains('resize-handle')) return;
+
+            hideContextMenu();
+
+            // 点击文字元素
+            const textEl = e.target.closest(editableSelectors);
+            if (textEl && textEl.closest('.slide-content')) {
+                selectElement(textEl);
+                textEl.setAttribute('contenteditable', 'true');
+                textEl.focus();
+                // 保存编辑前状态用于撤回
+                const eid = ensureEditId(textEl);
+                const prevHtml = textEl.innerHTML;
+                const blurHandler = function() {
+                    if (textEl.innerHTML !== prevHtml) {
+                        saveUndo({ type: 'textedit', id: eid, prevHtml: prevHtml });
+                    }
+                    textEl.removeEventListener('blur', blurHandler);
+                };
+                textEl.addEventListener('blur', blurHandler);
+                return;
+            }
+
+            // 点击组件
+            const compEl = e.target.closest(componentSelectors);
+            if (compEl && compEl.closest('.slide-content')) {
+                selectElement(compEl);
+                return;
+            }
+
+            // 点击空白处取消选中
+            deselectAll();
+        });
+
+        // ===== 字号调整 =====
+        window.editFontSize = function(dir) {
+            if (!selectedElement) return;
+            const eid = ensureEditId(selectedElement);
+            const prevFontSize = selectedElement.style.fontSize || '';
+            const computed = window.getComputedStyle(selectedElement);
+            const currentSize = parseFloat(computed.fontSize);
+            const newSize = currentSize + dir * 2;
+            if (newSize >= 8) {
+                selectedElement.style.fontSize = newSize + 'px';
+                saveUndo({ type: 'fontsize', id: eid, prevFontSize: prevFontSize });
+            }
+        };
+
+        // ===== 删除选中 =====
+        window.deleteSelected = function() {
+            if (!selectedElement) return;
+            const el = selectedElement;
+            const eid = ensureEditId(el);
+            saveUndo({
+                type: 'delete',
+                id: eid,
+                html: el.outerHTML,
+                parent: el.parentNode,
+                nextSibling: el.nextSibling
+            });
+            el.remove();
+            selectedElement = null;
+        };
+
+        // ===== 组件拖动（不形变，丝滑） =====
+        let dragEl = null;
+        let dragClone = null;
+        let dragOffX = 0, dragOffY = 0;
+        let dragStartX = 0, dragStartY = 0;
+        let hasMoved = false;
+        let dragPrevState = null;
+
+        document.addEventListener('mousedown', function(e) {
+            if (!isEditMode) return;
+            if (e.button !== 0) return;
+            if (e.target.closest('#littleMonster') || e.target.closest('.edit-toolbar') || e.target.closest('.context-menu')) return;
+            if (e.target.closest('[contenteditable="true"]')) return;
+
+            // Resize 手柄
+            if (e.target.classList.contains('resize-handle')) {
+                startResize(e);
+                return;
+            }
+
+            const el = e.target.closest(componentSelectors);
+            if (el && el.closest('.slide-content')) {
+                dragEl = el;
+                dragStartX = e.clientX;
+                dragStartY = e.clientY;
+                hasMoved = false;
+
+                const rect = el.getBoundingClientRect();
+                dragOffX = e.clientX - rect.left;
+                dragOffY = e.clientY - rect.top;
+
+                // 保存拖动前的状态
+                dragPrevState = {
+                    position: el.style.position || '',
+                    left: el.style.left || '',
+                    top: el.style.top || '',
+                    zIndex: el.style.zIndex || '',
+                    margin: el.style.margin || '',
+                    parent: el.parentNode
+                };
+
+                e.preventDefault();
+            }
+        });
+
+        document.addEventListener('mousemove', function(e) {
+            // Resize 处理
+            if (resizeState) {
+                handleResize(e);
+                return;
+            }
+
+            if (!dragEl) return;
+
+            const dx = e.clientX - dragStartX;
+            const dy = e.clientY - dragStartY;
+
+            if (!hasMoved && Math.abs(dx) < 5 && Math.abs(dy) < 5) return;
+            hasMoved = true;
+
+            if (!dragClone) {
+                // 创建克隆体，保持原始宽高比
+                dragClone = dragEl.cloneNode(true);
+                dragClone.classList.add('drag-clone');
+                // 移除克隆体中的resize手柄
+                dragClone.querySelectorAll('.resize-handle').forEach(h => h.remove());
+
+                const rect = dragEl.getBoundingClientRect();
+                // 锁定宽高，防止形变
+                dragClone.style.width = rect.width + 'px';
+                dragClone.style.height = rect.height + 'px';
+                dragClone.style.left = rect.left + 'px';
+                dragClone.style.top = rect.top + 'px';
+                document.body.appendChild(dragClone);
+                dragEl.classList.add('edit-dragging');
+            }
+
+            // 移动克隆体
+            dragClone.style.left = (e.clientX - dragOffX) + 'px';
+            dragClone.style.top = (e.clientY - dragOffY) + 'px';
+        });
+
+        document.addEventListener('mouseup', function(e) {
+            // Resize 结束
+            if (resizeState) {
+                endResize(e);
+                return;
+            }
+
+            if (!dragEl) return;
+
+            if (hasMoved && dragClone) {
+                const eid = ensureEditId(dragEl);
+
+                // 找到目标slide
+                const slides = document.querySelectorAll('.slide');
+                let targetSlide = null;
+                slides.forEach(slide => {
+                    const rect = slide.getBoundingClientRect();
+                    if (e.clientX >= rect.left && e.clientX <= rect.right &&
+                        e.clientY >= rect.top && e.clientY <= rect.bottom) {
+                        targetSlide = slide;
+                    }
+                });
+
+                if (targetSlide) {
+                    const slideContent = targetSlide.querySelector('.slide-content');
+                    const slideRect = slideContent.getBoundingClientRect();
+
+                    const newLeft = e.clientX - slideRect.left - dragOffX;
+                    const newTop = e.clientY - slideRect.top - dragOffY;
+
+                    // 如果元素不在目标slide中，移动过去
+                    if (dragEl.closest('.slide') !== targetSlide) {
+                        slideContent.appendChild(dragEl);
+                    }
+
+                    dragEl.style.position = 'absolute';
+                    dragEl.style.left = newLeft + 'px';
+                    dragEl.style.top = newTop + 'px';
+                    dragEl.style.zIndex = '10';
+                    dragEl.style.margin = '0';
+                }
+
+                // 保存撤回
+                saveUndo({
+                    type: 'move',
+                    id: eid,
+                    prevPosition: dragPrevState.position,
+                    prevLeft: dragPrevState.left,
+                    prevTop: dragPrevState.top,
+                    prevZIndex: dragPrevState.zIndex,
+                    prevMargin: dragPrevState.margin,
+                    prevParent: dragPrevState.parent
+                });
+
+                dragClone.remove();
+                dragClone = null;
+                dragEl.classList.remove('edit-dragging');
+
+                // 重新添加resize手柄
+                addResizeHandles(dragEl);
+            }
+
+            dragEl = null;
+            hasMoved = false;
+            dragPrevState = null;
+        });
+
+        // ===== Resize 功能 =====
+        let resizeState = null;
+
+        function startResize(e) {
+            const handle = e.target;
+            const el = handle.parentElement;
+            const dir = handle.dataset.resizeDir;
+            const rect = el.getBoundingClientRect();
+
+            const eid = ensureEditId(el);
+
+            resizeState = {
+                el: el,
+                dir: dir,
+                startX: e.clientX,
+                startY: e.clientY,
+                startWidth: rect.width,
+                startHeight: rect.height,
+                startLeft: el.offsetLeft,
+                startTop: el.offsetTop,
+                prevWidth: el.style.width || '',
+                prevHeight: el.style.height || ''
+            };
+
+            e.preventDefault();
+            e.stopPropagation();
+        }
+
+        function handleResize(e) {
+            if (!resizeState) return;
+            const s = resizeState;
+            const dx = e.clientX - s.startX;
+            const dy = e.clientY - s.startY;
+
+            let newWidth = s.startWidth;
+            let newHeight = s.startHeight;
+            let newLeft = s.startLeft;
+            let newTop = s.startTop;
+
+            if (s.dir.includes('e')) newWidth = Math.max(40, s.startWidth + dx);
+            if (s.dir.includes('w')) { newWidth = Math.max(40, s.startWidth - dx); newLeft = s.startLeft + dx; }
+            if (s.dir.includes('s')) newHeight = Math.max(30, s.startHeight + dy);
+            if (s.dir.includes('n')) { newHeight = Math.max(30, s.startHeight - dy); newTop = s.startTop + dy; }
+
+            s.el.style.width = newWidth + 'px';
+            s.el.style.height = newHeight + 'px';
+            s.el.style.left = newLeft + 'px';
+            s.el.style.top = newTop + 'px';
+
+            // 图片/视频内部适配
+            const img = s.el.tagName === 'IMG' ? s.el : s.el.querySelector('img');
+            const vid = s.el.tagName === 'VIDEO' ? s.el : s.el.querySelector('video');
+            if (img) { img.style.width = '100%'; img.style.height = '100%'; img.style.objectFit = 'contain'; img.style.maxWidth = 'none'; }
+            if (vid) { vid.style.width = '100%'; vid.style.height = '100%'; vid.style.objectFit = 'contain'; vid.style.maxWidth = 'none'; }
+        }
+
+        function endResize() {
+            if (!resizeState) return;
+            const eid = ensureEditId(resizeState.el);
+            saveUndo({
+                type: 'resize',
+                id: eid,
+                prevWidth: resizeState.prevWidth,
+                prevHeight: resizeState.prevHeight
+            });
+            resizeState = null;
+        }
+
+        // ===== 右键菜单 =====
+        document.addEventListener('contextmenu', function(e) {
+            if (!isEditMode) return;
+
+            const target = e.target.closest(editableSelectors) ||
+                           e.target.closest(componentSelectors);
+
+            if (target && target.closest('.slide-content')) {
+                e.preventDefault();
+                contextTarget = target;
+                selectElement(target);
+
+                const menu = document.getElementById('contextMenu');
+                const isImg = target.tagName === 'IMG' || target.querySelector('img');
+                const isVideo = target.tagName === 'VIDEO' || target.querySelector('video');
+                const hasMedia = isImg || isVideo;
+                menu.querySelector('[data-action="replace-image"]').style.display = isImg ? '' : 'none';
+                menu.querySelector('[data-action="replace-video"]').style.display = isVideo ? '' : 'none';
+                menu.querySelector('[data-action="img-bigger"]').style.display = hasMedia ? '' : 'none';
+                menu.querySelector('[data-action="img-smaller"]').style.display = hasMedia ? '' : 'none';
+
+                menu.style.left = e.clientX + 'px';
+                menu.style.top = e.clientY + 'px';
+                menu.classList.add('visible');
+            }
+        });
+
+        document.getElementById('contextMenu').addEventListener('click', function(e) {
+            const item = e.target.closest('.menu-item');
+            if (!item) return;
+
+            const action = item.dataset.action;
+            switch (action) {
+                case 'fontup':
+                    if (contextTarget) {
+                        const eid = ensureEditId(contextTarget);
+                        const prev = contextTarget.style.fontSize || '';
+                        const s = parseFloat(window.getComputedStyle(contextTarget).fontSize);
+                        contextTarget.style.fontSize = (s + 2) + 'px';
+                        saveUndo({ type: 'fontsize', id: eid, prevFontSize: prev });
+                    }
+                    break;
+                case 'fontdown':
+                    if (contextTarget) {
+                        const eid = ensureEditId(contextTarget);
+                        const prev = contextTarget.style.fontSize || '';
+                        const s = parseFloat(window.getComputedStyle(contextTarget).fontSize);
+                        if (s - 2 >= 8) {
+                            contextTarget.style.fontSize = (s - 2) + 'px';
+                            saveUndo({ type: 'fontsize', id: eid, prevFontSize: prev });
+                        }
+                    }
+                    break;
+                case 'delete':
+                    if (contextTarget) {
+                        const eid = ensureEditId(contextTarget);
+                        saveUndo({
+                            type: 'delete',
+                            id: eid,
+                            html: contextTarget.outerHTML,
+                            parent: contextTarget.parentNode,
+                            nextSibling: contextTarget.nextSibling
+                        });
+                        contextTarget.remove();
+                        contextTarget = null;
+                        selectedElement = null;
+                    }
+                    break;
+                case 'replace-image':
+                    {
+                        const imgEl = contextTarget.tagName === 'IMG' ? contextTarget : contextTarget.querySelector('img');
+                        if (imgEl) {
+                            const eid = ensureEditId(imgEl);
+                            const prevSrc = imgEl.src;
+                            const fi = document.getElementById('fileInput');
+                            fi.onchange = function(ev) {
+                                const file = ev.target.files[0];
+                                if (file) {
+                                    const reader = new FileReader();
+                                    reader.onload = function(re) {
+                                        imgEl.src = re.target.result;
+                                        saveUndo({ type: 'replace-image', id: eid, prevSrc: prevSrc });
+                                    };
+                                    reader.readAsDataURL(file);
+                                }
+                                fi.value = '';
+                            };
+                            fi.click();
+                        }
+                    }
+                    break;
+                case 'replace-video':
+                    {
+                        const vidEl = contextTarget.tagName === 'VIDEO' ? contextTarget : contextTarget.querySelector('video');
+                        if (vidEl) {
+                            const eid = ensureEditId(vidEl);
+                            const prevSrc = vidEl.src;
+                            const vi = document.getElementById('videoInput');
+                            vi.onchange = function(ev) {
+                                const file = ev.target.files[0];
+                                if (file) {
+                                    const url = URL.createObjectURL(file);
+                                    vidEl.src = url;
+                                    saveUndo({ type: 'replace-video', id: eid, prevSrc: prevSrc });
+                                }
+                                vi.value = '';
+                            };
+                            vi.click();
+                        }
+                    }
+                    break;
+                case 'img-bigger':
+                    {
+                        const mediaEl = (contextTarget.tagName === 'IMG' || contextTarget.tagName === 'VIDEO')
+                            ? contextTarget
+                            : (contextTarget.querySelector('img') || contextTarget.querySelector('video'));
+                        if (mediaEl) {
+                            const eid = ensureEditId(mediaEl);
+                            const prevWidth = mediaEl.style.width || '';
+                            const prevMaxWidth = mediaEl.style.maxWidth || '';
+                            const w = mediaEl.offsetWidth;
+                            mediaEl.style.maxWidth = (w * 1.2) + 'px';
+                            mediaEl.style.width = (w * 1.2) + 'px';
+                            saveUndo({ type: 'mediasize', id: eid, prevWidth: prevWidth, prevMaxWidth: prevMaxWidth });
+                        }
+                    }
+                    break;
+                case 'img-smaller':
+                    {
+                        const mediaEl2 = (contextTarget.tagName === 'IMG' || contextTarget.tagName === 'VIDEO')
+                            ? contextTarget
+                            : (contextTarget.querySelector('img') || contextTarget.querySelector('video'));
+                        if (mediaEl2) {
+                            const eid = ensureEditId(mediaEl2);
+                            const prevWidth = mediaEl2.style.width || '';
+                            const prevMaxWidth = mediaEl2.style.maxWidth || '';
+                            const w = mediaEl2.offsetWidth;
+                            if (w * 0.8 >= 30) {
+                                mediaEl2.style.maxWidth = (w * 0.8) + 'px';
+                                mediaEl2.style.width = (w * 0.8) + 'px';
+                                saveUndo({ type: 'mediasize', id: eid, prevWidth: prevWidth, prevMaxWidth: prevMaxWidth });
+                            }
+                        }
+                    }
+                    break;
+            }
+            hideContextMenu();
+        });
+
+        function hideContextMenu() {
+            document.getElementById('contextMenu').classList.remove('visible');
+        }
+
+        document.addEventListener('click', function(e) {
+            if (!e.target.closest('.context-menu')) {
+                hideContextMenu();
+            }
+        });
+
+        // ===== 插入文本 =====
+        window.insertText = function() {
+            if (!isEditMode) return;
+            const slide = findCurrentSlide();
+            if (!slide) return;
+            const content = slide.querySelector('.slide-content');
+            const div = document.createElement('div');
+            div.className = 'editable-textbox';
+            div.contentEditable = 'true';
+            div.style.cssText = 'left:10%;top:20%;width:200px;min-height:30px;font-size:18px;color:var(--ink);font-family:var(--serif);';
+            div.textContent = '请输入文字';
+            content.appendChild(div);
+
+            const eid = ensureEditId(div);
+            saveUndo({ type: 'insert', id: eid });
+
+            div.focus();
+            const range = document.createRange();
+            range.selectNodeContents(div);
+            const sel = window.getSelection();
+            sel.removeAllRanges();
+            sel.addRange(range);
+
+            selectElement(div);
+        };
+
+        // ===== 插入图片 =====
+        window.insertImage = function() {
+            if (!isEditMode) return;
+            const fi = document.getElementById('fileInput');
+            fi.onchange = function(e) {
+                const file = e.target.files[0];
+                if (file) {
+                    const reader = new FileReader();
+                    reader.onload = function(re) {
+                        const slide = findCurrentSlide();
+                        if (!slide) return;
+                        const content = slide.querySelector('.slide-content');
+                        const wrapper = document.createElement('div');
+                        wrapper.className = 'inserted-element';
+                        wrapper.style.cssText = 'left:10%;top:20%;width:200px;height:150px;';
+
+                        const img = document.createElement('img');
+                        img.src = re.target.result;
+                        img.style.cssText = 'width:100%;height:100%;object-fit:contain;display:block;border-radius:4px;';
+                        img.draggable = false;
+
+                        wrapper.appendChild(img);
+                        content.appendChild(wrapper);
+
+                        const eid = ensureEditId(wrapper);
+                        saveUndo({ type: 'insert', id: eid });
+                        selectElement(wrapper);
+                    };
+                    reader.readAsDataURL(file);
+                }
+                fi.value = '';
+            };
+            fi.click();
+        };
+
+        // ===== 插入视频 =====
+        window.insertVideo = function() {
+            if (!isEditMode) return;
+            const vi = document.getElementById('videoInput');
+            vi.onchange = function(e) {
+                const file = e.target.files[0];
+                if (file) {
+                    const slide = findCurrentSlide();
+                    if (!slide) return;
+                    const content = slide.querySelector('.slide-content');
+                    const wrapper = document.createElement('div');
+                    wrapper.className = 'inserted-element';
+                    wrapper.style.cssText = 'left:10%;top:20%;width:300px;height:200px;';
+
+                    const video = document.createElement('video');
+                    video.src = URL.createObjectURL(file);
+                    video.controls = true;
+                    video.style.cssText = 'width:100%;height:100%;object-fit:contain;display:block;border-radius:4px;';
+                    video.draggable = false;
+
+                    wrapper.appendChild(video);
+                    content.appendChild(wrapper);
+
+                    const eid = ensureEditId(wrapper);
+                    saveUndo({ type: 'insert', id: eid });
+                    selectElement(wrapper);
+                }
+                vi.value = '';
+            };
+            vi.click();
+        };
+
+        // ===== 找到当前可见的slide =====
+        function findCurrentSlide() {
+            const slides = document.querySelectorAll('.slide');
+            const viewMid = window.innerHeight / 2;
+            let closest = null;
+            let closestDist = Infinity;
+            slides.forEach(slide => {
+                const rect = slide.getBoundingClientRect();
+                const slideMid = rect.top + rect.height / 2;
+                const dist = Math.abs(slideMid - viewMid);
+                if (dist < closestDist) {
+                    closestDist = dist;
+                    closest = slide;
+                }
+            });
+            return closest;
+        }
+
+        // ===== 键盘快捷键 =====
+        document.addEventListener('keydown', function(e) {
+            if (!isEditMode) return;
+
+            // Ctrl+Z 撤回
+            if ((e.ctrlKey || e.metaKey) && e.key === 'z') {
+                e.preventDefault();
+                doUndo();
+                return;
+            }
+
+            // Delete键删除选中
+            if (e.key === 'Delete' && selectedElement && !selectedElement.hasAttribute('contenteditable')) {
+                window.deleteSelected();
+                e.preventDefault();
+            }
+
+            // Escape取消选中
+            if (e.key === 'Escape') {
+                deselectAll();
+                hideContextMenu();
+            }
+        });
+
+    })();
+    </script>
+</body>
+</html>
